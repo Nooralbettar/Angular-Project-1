@@ -1,0 +1,76 @@
+
+<table *ngIf="arrayOfUser.length>0" border="1" cellSpacing="5"cellPadding="5">
+    <thead>
+        <tr>
+        <th>id</th>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>birthdate</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>address</th>
+        <th>Action <button type="button" (click)="preview(div1)" >Add Button</button></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let items of arrayOfUser; let i= index;">
+            <td>{{items.id}}</td>
+            <td>{{items.name.first_name}}</td>
+            <td>{{items.name.last_name}}</td>
+            <td>{{items.birthdate}}</td>
+            <td>{{items.email}}</td>
+            <td>{{items.phone}}</td>
+            <td>{{items.address}}</td>
+           <td><button (click)="edit(i)" (click)="newForm(div2)" (click)="updates(i)"> Edit Boutton </button> <button (click)="deleteItem(i)" > Remove Boutton </button></td>
+           
+
+
+
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="div1">
+    <h4> the user form</h4>
+    <form>
+        <label>id</label>
+        <input type="text" name="id"         [(ngModel)] = "idForm"/><br><br>
+        <label>first_name</label>
+        <input type="text" name="first_name" [(ngModel)] = "first_nameForm" /><br><br>
+        <label>last_name</label>
+        <input type="text" name="last_name"  [(ngModel)] = "last_nameForm"  /><br><br>
+        <label>email</label>
+        <input type="text" name="email"      [(ngModel)] = "emailForm"  /><br><br>
+        <label>birthdate</label>
+        <input type="text" name="birthdate"  [(ngModel)] = "birthdateForm"  /><br><br>
+        <label>phone</label>
+        <input type="text" name="phone"      [(ngModel)] = "phoneForm"  /><br><br>
+        <label>address</label>
+        <input type="text" name="address"    [(ngModel)] = "addressForm"   /><br><br>
+        <button type="button" (click)="Creat()" >Creat button</button>
+        
+    </form>
+</div>
+
+
+<div *ngIf="div2">
+    <h4> the user form</h4>
+    <form>
+        <label>id</label>
+        <input type="text" name="id"         [(ngModel)] = "idForm2"/><br><br>
+        <label>first_name</label>
+        <input type="text" name="first_name" [(ngModel)] = "first_nameForm2" /><br><br>
+        <label>last_name</label>
+        <input type="text" name="last_name"  [(ngModel)] = "last_nameForm2"  /><br><br>
+        <label>email</label>
+        <input type="text" name="email"      [(ngModel)] = "emailForm2"  /><br><br>
+        <label>birthdate</label>
+        <input type="text" name="birthdate"  [(ngModel)] = "birthdateForm2"  /><br><br>
+        <label>phone</label>
+        <input type="text" name="phone"      [(ngModel)] = "phoneForm2"  /><br><br>
+        <label>address</label>
+        <input type="text" name="address"    [(ngModel)] = "addressForm2"   /><br><br>
+        <button type="button" (click)="updates()" >Creat button</button>
+        
+    </form>
+</div>
